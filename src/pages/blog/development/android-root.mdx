@@ -1,0 +1,41 @@
+# Unlocking the boot loader
+
+Credit where credit is due I followed the following [guide](https://youtu.be/UVKUDZSyjW4) on youtube. You're going to need a laptop where you can download some tools (android tools). So first things first on my phone I 
+* Enabled developer tools by clicking the kernel version 10 times or something
+* Enabled OEM unlocking  and USB debugging in Developer options
+* Plugged in to my computer
+* Turned off my phone and restarted it in fastboot mode (it'll go to a weird technical looking screen and wait). To restart in fastboot mode, hold down the power button and the volume down button.
+
+During this time on my computer I didn't need to install any [motorolla drivers](https://motorola-global-portal.custhelp.com/app/answers/detail/a_id/88481) as I'm on Linux. Instead I installed the [platform tools](https://developer.android.com/studio/releases/platform-tools) from Android Studio to use adb and fastboot. I also went to the [motorola website](https://motorola-global-portal.custhelp.com/app/standalone%2Fbootloader%2Funlock-your-device-a) to get the code to unlock my bootloader. During this process I tried to check my device was connected properly with the command `fastpath devices` but it didn't work and so I had to follow the instructions on [android.com](https://developer.android.com/studio/run/device) to add my user to the plugdev group to run the fastboot executable.
+```
+sudo usermod -aG plugdev $LOGNAME
+```
+Adding myself to the new user group required a relog so I did that. I also installed the android-sdk-platform-tools-common package for the udev rules. I'm not sure if this was necessary but I did it anyway.
+
+Next I ran
+```
+./fastboot oem get_unlock_data
+```
+and then formatted and pasted the data into the [motorola website](https://motorola-global-portal.custhelp.com/app/standalone%2Fbootloader%2Funlock-your-device-b). To begin with it didn't work, until I registered my device with Motorolla via the same website.
+
+After receiving the code via email. I ran the following command twice with `UNIQUE_KEY` replaced with my actual key.
+```
+fastboot oem unlock UNIQUE_KEY
+```
+
+And that was the bootloader unlocked!
+
+# Download Magisk
+
+I went to the magisk site and downloaded the apk and installed it to my phone. I then tried to patch/flash the rom/os (not sure what the technical name for it is) from within the app by downloading the .zip. That didn't work so I downloaded an image from [TWRP](https://twrp.me/Devices/) for my motorolla g5 and flashed it onto the device with the following commands
+```
+./adb reboot bootloader
+./fastboot flash recover twrp-3.1.1.img
+./fastboot boot twrp-3.1.1.1.img
+```
+Then I used twrp to flash the magisk zip. That worked and then I went into Magisk and installed it fully. I hide it from pokemon go and installed a gps fake app.
+
+export const meta = {
+    name: "Android Root",
+    date: new Date("2021-08-10"),
+}

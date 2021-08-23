@@ -1,0 +1,20 @@
+# Intro
+
+When originally starting off with the starter template, it came equipped for Gatsby version 2. The latest version is version 3. At first it worked fine but when trying to use the Gatsby Filesource plugin, I had trouble finding the correct version to be compatible with version 2 so I decided just to upgrade to version 3.
+
+# Updating plugins
+
+I started by running `npm outdated`, which produced a table of the current plugins and the latest version of those plugins. Then for each plugin that I thought was necessary to continue to use I ran the following command (In this exapmle I'm updating react): `npm install react@latest --legacy-peer-deps`
+
+# Code compatibility
+
+Lucky for me there wasn't a whole lot of code so there any code that I had to replace according to the [migration notes](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/).
+
+# Conclusion
+
+After all this the gatsby application compiled and ran successfully.
+
+export const meta = {
+    name: "Updating Gatsby to Version 3",
+    date: new Date("2021-08-23")
+}

@@ -1,24 +1,40 @@
 {
-  "name": "personal-gatsby-site",
+  "name": "my-gatsby-project",
+  "description": "Personal Gatsby site Forty V3",
   "version": "1.0.0",
+  "author": "Matthew Kelly-Ng",
   "private": true,
-  "description": "Personal Gatsby Site",
-  "author": "Moatomt",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^3.12.0",
+    "gatsby-plugin-manifest": "^3.12.0",
+    "gatsby-plugin-mdx": "^2.12.0",
+    "gatsby-plugin-offline": "^4.12.0",
+    "gatsby-plugin-react-helmet": "^4.12.0",
+    "gatsby-plugin-sass": "^4.12.0",
+    "gatsby-source-filesystem": "^3.12.0",
+    "node-sass": "^4.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  },
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "develop": "gatsby develop",
+    "format": "prettier --write '**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "gatsby": "^3.6.2",
-    "gatsby-plugin-sass": "^4.8.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sass": "^1.35.1"
+  "devDependencies": {
+    "gh-pages": "^3.2.3",
+    "prettier": "^1.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Moatomt/personal-gatsby-site"
   }
 }

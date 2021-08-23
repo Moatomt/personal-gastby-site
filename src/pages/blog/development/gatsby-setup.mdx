@@ -1,0 +1,49 @@
+# Requirements
+To develop with Gatsby you'll need the following software:
+* Node.js
+* Git
+* Gatsby CLI
+
+## Node.js
+
+To download node, I used nvm, that way I can keep up to date with different versions.
+Nvm stands for Node Version Manager and can be found on [github](https://github.com/nvm-sh/nvm).
+I'm on linux at the moment so I can download it following the instructions on the github's readme, 
+but for windows, you may have to try something else.
+
+Once nvm was installed, I installed the latest lts of Node with `nvm install --lts` and was able 
+to see the remote versions available with `nvm ls-remote`. 
+You can list current local versions by `nvm list` and see the current by `nvm current`. 
+Once you do `nvm use lts/fermium`, where 'fermium' is the name of your release, any use of npm or
+node should be the version selected via npm.
+
+## Git
+
+Git is pretty self explanatory. Download it from the internet as an exe on windows or though 
+your package manager on linux
+
+## Gatsby CLI
+
+Gatsby can be installed through npm.
+
+`npm install -g gatsby-cli`
+
+The `-g` tag makes it install globally, rather than just in the current directory and is preferable
+to allow command-line utilities so that their executable components are available in the system path.
+
+# Creating a new site
+
+You can create a new site after navigating to a directory that you want to put your source code folder
+in. Then type in the command line: `gatsby new` and the prompts will direct you.
+
+To then run your site locally, navigate into that newly created directory and either run one of the
+following:
+* `gastby develop`
+* `npm run develop`
+
+After running the command, the site should be accessible at http://localhost:8000
+
+export const meta = {
+    name: "Gatsby Setup",
+    date: new Date("2021-07-13")
+}

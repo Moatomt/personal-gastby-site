@@ -1,0 +1,64 @@
+# Troubles
+So I've been having some trouble with markdown + JSX producing different HTML to what is specified in Markdown Specifications. I've documented some of the weirdness I've encountered to prevent myself from being super stumped again. It took me a couple hours to figure this out as I thought it was potentially due to missing npm dependencies, conflicting npm package versions, or even my css.
+
+## Nested lists
+
+I found the MDX producing HTML code tags when using nested lists, specifically when I had written my single paragraphs across multiple lines. The parts in question looked like this:
+```
+1. Discuss the relative importance of the following components
+for an authentic Christian life:
+    1. a set of moral values
+    2. the nature, person and work of Jesus
+    3. a community/church experience
+    4. a religious experience
+```
+Which would render as such:
+1. Discuss the relative importance of the following components
+for an authentic Christian life:
+    1. a set of moral values
+    2. the nature, person and work of Jesus
+    3. a community/church experience
+    4. a religious experience
+
+instead of as:
+1. Discuss the relative importance of the following components for an authentic Christian life:
+    1. a set of moral values
+    2. the nature, person and work of Jesus
+    3. a community/church experience
+    4. a religious experience
+
+It would fix itself when I combined the first sentence into one line but this would render correctly on vscode's inbuilt markdown preview.
+
+Similarly I had another problem with a nested unordered list. The following would create a nested code block instead of a nested unordered list.
+
+```
+3. The participants in the episode point to at least four key things that made and make Jesus such a transformative figure worldwide:
+    - His teaching on the value and equality of all people -"*each individual was beloved of God.*" \[Lynn Cohick\]
+    - the death of Jesus on the cross - "*this symbol of death ultimately becomes a symbol of new life.*" \[Ed Stetzer\]
+    - the resurrection of Jesus - "*the cornerstone of our faith... Jesus is alive, He is also Lord of the universe.*" \[Craig Keener\]
+    - Jesus' continuing impact on people today - "*He changed my life and that's the way I see Jesus as the Game Changer.*" \[Maryam Rostampour\]
+Why are these so important? Which is most or least persuasive for you?
+```
+3. The participants in the episode point to at least four key things that made and make Jesus such a transformative figure worldwide:
+    - His teaching on the value and equality of all people -"*each individual was beloved of God.*" \[Lynn Cohick\]
+    - the death of Jesus on the cross - "*this symbol of death ultimately becomes a symbol of new life.*" \[Ed Stetzer\]
+    - the resurrection of Jesus - "*the cornerstone of our faith... Jesus is alive, He is also Lord of the universe.*" \[Craig Keener\]
+    - Jesus' continuing impact on people today - "*He changed my life and that's the way I see Jesus as the Game Changer.*" \[Maryam Rostampour\]
+Why are these so important? Which is most or least persuasive for you?
+
+Adding an extra line between the last list item and the last two sentences and a tab fixed it but made all the ordered list items be enclosed in paragraph tags (as is expected in markdown). i.e
+
+-------
+
+3. The participants in the episode point to at least four key things that made and make Jesus such a transformative figure worldwide:
+    - His teaching on the value and equality of all people -"*each individual was beloved of God.*" \[Lynn Cohick\]
+    - the death of Jesus on the cross - "*this symbol of death ultimately becomes a symbol of new life.*" \[Ed Stetzer\]
+    - the resurrection of Jesus - "*the cornerstone of our faith... Jesus is alive, He is also Lord of the universe.*" \[Craig Keener\]
+    - Jesus' continuing impact on people today - "*He changed my life and that's the way I see Jesus as the Game Changer.*" \[Maryam Rostampour\]
+    
+    Why are these so important? Which is most or least persuasive for you?
+
+export const meta = {
+    name: "MDX",
+    date: new Date("2021-08-08")
+}

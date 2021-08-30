@@ -38,6 +38,12 @@ const Landing = props => (
                 <p>Week 2</p>
               </Link>
             </li>
+            <li>
+              <Link to="jesus-the-game-changer/the-persecuted-church">
+                <h4>The Persecuted Church</h4>
+                <p>Week 3</p>
+              </Link>
+            </li>
           </ul>
         </div>
       </section>

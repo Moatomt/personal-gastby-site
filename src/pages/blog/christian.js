@@ -44,6 +44,12 @@ const Landing = props => (
                 <p>Week 3</p>
               </Link>
             </li>
+            <li>
+              <Link to="jesus-the-game-changer/africa">
+                <h4>Africa</h4>
+                <p>Week 4</p>
+              </Link>
+            </li>
           </ul>
         </div>
       </section>

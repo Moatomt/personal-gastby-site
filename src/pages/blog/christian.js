@@ -19,11 +19,21 @@ const Landing = props => (
           <header className="major">
             <h2>Bible Studies</h2>
           </header>
-          <p>
-            I currently only have the following questions from the Jesus the
-            Game Changer Series but plan to populate it with studies I have
-            written.
-          </p>
+          <header className="major">
+            <h3>Mark</h3>
+          </header>
+          <hr className="major" />
+          <ul className="alt">
+            <li>
+              <Link to="mark/the-way-of-the-cross-mark-8">
+                <h4>The Way of the Cross</h4>
+                <p>Week 1</p>
+              </Link>
+            </li>
+          </ul>
+          <header className="major">
+            <h3>Jesus The Game Changer</h3>
+          </header>
           <hr className="major" />
           <ul className="alt">
             <li>

@@ -20,6 +20,18 @@ const Landing = props => (
             <h2>Bible Studies</h2>
           </header>
           <header className="major">
+            <h3>Philippians</h3>
+          </header>
+          <hr className="major" />
+          <ul className="alt">
+            <li>
+              <Link to="philippians/philippians-1:1-11">
+                <h4>Understanding God's Love</h4>
+                <p>Week 1</p>
+              </Link>
+            </li>
+          </ul>
+          <header className="major">
             <h3>Mark</h3>
           </header>
           <hr className="major" />
